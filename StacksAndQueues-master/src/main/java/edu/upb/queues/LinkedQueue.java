@@ -19,6 +19,7 @@ public class LinkedQueue implements IQueue {
     private Node tail = null;
     private int size =0;
 
+    
     @Override
     public void enqueue(Object item) {
         Node n = new Node(item);
@@ -27,13 +28,13 @@ public class LinkedQueue implements IQueue {
             head=n;
             tail=head;
         }else{
-        
             tail.setNext(n);
             tail=tail.getNext();
         }
         size++;
     }
 
+    
     @Override
     public Object dequeue() {
         if(size==0){
@@ -47,6 +48,7 @@ public class LinkedQueue implements IQueue {
         
     }
 
+    
     @Override
     public Object peek() {
         if(size==0){
@@ -58,11 +60,13 @@ public class LinkedQueue implements IQueue {
         
     }
 
+    
     @Override
     public int size() {
         return size;
     }
 
+    
     @Override
     public boolean isEmpty() {
         return size==0;

@@ -17,10 +17,12 @@ public class LinkedStack implements IStack {
 
     private Node top = null;
 
+    @Override
     public void push(Object item) {
         top = new Node(item, top);
     }
 
+    @Override
     public Object pop() {
 
         if (top == null) {
@@ -32,10 +34,12 @@ public class LinkedStack implements IStack {
         return item;
     }
 
+    @Override
     public boolean isEmpty() {
         return top == null;
     }
 
+    @Override
     public Object peek() {
         if (top == null) {
             throw new MyException("Cannot peek from empty stack");
@@ -43,6 +47,7 @@ public class LinkedStack implements IStack {
         return top.getData();
     }
 
+    @Override
     public int size() {
         int count = 0;
         for (Node node = top; node != null; node = node.getNext()) {

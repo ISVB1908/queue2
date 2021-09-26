@@ -11,7 +11,12 @@ package edu.upb.models;
  */
 public class MyException extends RuntimeException {
     
-    public MyException(String errorMessage ){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MyException(String errorMessage ){
         super(errorMessage);
     }
     

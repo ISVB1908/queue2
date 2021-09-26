@@ -18,12 +18,13 @@ public class ArrayQueueTest extends BaseQueueTest{
      private static final int CAPACITY = 40;
 
     @Before
-    public void makeBoundedStack() {
+    public void makeBoundedQueue() {
         s = new ArrayQueue(CAPACITY);
     }
 
     @Test(expected = MyException.class)
-    public void testEnqueueToFullStack() {
+    public void testEnqueueToFullQueue() {
+        
         for (int i = 0; i < CAPACITY; i++) {
             s.enqueue("Element "+i);
         }

@@ -40,7 +40,7 @@ public abstract class BaseQueueTest {
         String message="zzz";
         s.enqueue(message);
         assertEquals(s.dequeue(), message);
-        assertEquals(s.size(),size-1);//own
+        assertEquals(s.size(),size);//own
     }
     @Test
     public void testeEnqueueThenPeek(){

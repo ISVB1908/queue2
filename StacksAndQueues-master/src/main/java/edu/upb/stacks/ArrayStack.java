@@ -18,13 +18,14 @@ import edu.upb.models.IStack;
  */
 public class ArrayStack implements IStack {
 
-    private Object[] array;
+    private final Object[] array;
     private int size = 0;
 
     public ArrayStack(int capacity) {
         array = new Object[capacity];
     }
 
+    @Override
     public void push(Object item) {
         if (size == array.length) {
             throw new MyException("Cannot add to full stack");
@@ -32,6 +33,7 @@ public class ArrayStack implements IStack {
         array[size++] = item;
     }
 
+    @Override
     public Object pop() throws MyException {
         if (size == 0) {
             throw new MyException("Cannot pop from empty stack");
@@ -48,6 +50,7 @@ public class ArrayStack implements IStack {
         return array[size - 1];
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
