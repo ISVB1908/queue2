@@ -11,8 +11,8 @@ package edu.upb.models;
  */
 public class Node<T> {
 
-    public T data;
-    public Node next;
+    private T data;
+    private Node next;
 
     public Node(T data) {
         this.data = data;
@@ -21,5 +21,21 @@ public class Node<T> {
     public Node(T data, Node next) {
         this.data = data;
         this.next = next;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }

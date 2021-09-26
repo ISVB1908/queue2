@@ -6,6 +6,7 @@
 package edu.upb.queues;
 
 import edu.upb.models.IQueue;
+import edu.upb.models.MyException;
 import edu.upb.models.Node;
 
 /**
@@ -16,31 +17,55 @@ public class LinkedQueue implements IQueue {
 
     private Node head = null;
     private Node tail = null;
+    private int size =0;
 
     @Override
     public void enqueue(Object item) {
+        Node n = new Node(item);
+        if(head==null){
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            head=n;
+            tail=head;
+        }else{
+        
+            tail.setNext(n);
+            tail=tail.getNext();
+        }
+        size++;
     }
 
     @Override
     public Object dequeue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(size==0){
+        
+            throw new MyException("cannor remove to empty queue");
+        }
+        Node item=head;
+        head=head.getNext();
+        size--;
+        return item.getData();
+        
     }
 
     @Override
     public Object peek() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(size==0){
+        
+            throw new MyException("cannot peek empty queue");
+        }
+        Node item= head;
+        return item.getData();
+        
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return size==0;
     }
 
 }

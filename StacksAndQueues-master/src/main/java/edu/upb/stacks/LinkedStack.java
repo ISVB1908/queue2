@@ -28,7 +28,7 @@ public class LinkedStack implements IStack {
         }
 
         Object item = peek();
-        top = top.next;
+        top = top.getNext();
         return item;
     }
 
@@ -40,12 +40,12 @@ public class LinkedStack implements IStack {
         if (top == null) {
             throw new MyException("Cannot peek from empty stack");
         }
-        return top.data;
+        return top.getData();
     }
 
     public int size() {
         int count = 0;
-        for (Node node = top; node != null; node = node.next) {
+        for (Node node = top; node != null; node = node.getNext()) {
             count++;
         }
         return count;

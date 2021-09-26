@@ -37,7 +37,7 @@ public class ArrayQueue implements IQueue {
     public Object dequeue() {
         if(size==0){
         
-            throw new MyException("Cannot remove to full queue");
+            throw new MyException("Cannot remove to empty queue");
         }
         Object item = array[head];
         for(int i=0;i<tail-1;i++){//throught until one less than the last 
